@@ -1,0 +1,17 @@
+sudo apt-get update
+sudo apt install openjdk-8-jdk -y
+java -version
+# set JAVA_HOME Environment variable
+sudo nano /etc/environment
+JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+# save the file
+source /etc/environment
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+ http://your_server_ip_or_domain:8080
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
