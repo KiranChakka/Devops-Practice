@@ -6,10 +6,10 @@
     ping:
   - name: install git and update packages
     apt:
-      - name: git
-        state: present
-        update_cache: yes
+      name: git
+      state: present
+      update_cache: yes
   - name: install tree packages
     apt:
-      - name: tree
-        state: present
+      name: tree
+      state: present
