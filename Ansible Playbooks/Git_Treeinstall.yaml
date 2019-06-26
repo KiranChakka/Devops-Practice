@@ -2,8 +2,9 @@
 - hosts: all
   become: yes
   tasks:
-  - name: check ping install git and update packages
+  - name: check ping 
     ping:
+  - name: install git and update packages
     apt:
       - name: git
         state: present
