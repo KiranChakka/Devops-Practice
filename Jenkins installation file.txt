@@ -1,3 +1,4 @@
+Java Installation:
 sudo apt-get update
 sudo apt install openjdk-8-jdk -y
 java -version
@@ -6,6 +7,8 @@ sudo nano /etc/environment
 JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 # save the file
 source /etc/environment
+
+Jenkins Installation
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt update
@@ -15,3 +18,41 @@ sudo systemctl status jenkins
 
  http://your_server_ip_or_domain:8080
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Master configs
+1) This step is only for Amazon servers
+ a) enable below in the /etc/ssh/sshd_config
+     PasswordAuthentication yes
+ b) Restart sshd_config
+    sudo service sshd restart
+2) generate ssh keys
+ ssh-keygen
+ cd /home/jenkins/.ssh/
+ ls -ltr
+
+ Node:
+1) Create user as jenkins "adduser jenkins"
+    Choose password as "jenkins"
+2) Add below line in visudo file
+    jenkins ALL=(ALL:ALL) NOPASSWD:ALL
+3) This step is only for Amazon servers
+ a) enable below in the /etc/ssh/sshd_config
+     PasswordAuthentication yes
+ b) Restart sshd_config
+    sudo service sshd restart
+--------------------------------------------------------
+ Below step needs to be performed on Jenkins Master not on Node
+ cd /home/jenkins/.ssh/
+ ssh-copy-id jenkins@nodeprivatedns
+ login into Node server using ssh nodeprivate dns
+ verify authorised keys are exists ls ~/.ssh/
+-----------------------------------------------------------
+4) Installation of java
+sudo apt-get update
+sudo apt install openjdk-8-jdk -y
+java -version
+# set JAVA_HOME Environment variable
+sudo nano /etc/environment
+JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+# save the file
+source /etc/environment
