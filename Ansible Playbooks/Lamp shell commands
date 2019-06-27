@@ -13,3 +13,4 @@ sudo nano /var/www/html/info.php
 <?php
 phpinfo();
 ?>
+echo  '<?php phpinfo(); ?>' >> /var/www/html/info.php
