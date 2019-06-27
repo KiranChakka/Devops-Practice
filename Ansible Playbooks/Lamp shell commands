@@ -1,0 +1,15 @@
+Installing Lamp on Ubuntu 18.04
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+
+Step 1 — Installing Apache
+sudo apt update
+sudo apt install apache2
+sudo systemctl restart apache2
+
+Step 2 — Installing PHP
+sudo apt install php libapache2-mod-php php-mysql
+sudo systemctl restart apache2
+sudo nano /var/www/html/info.php
+<?php
+phpinfo();
+?>
