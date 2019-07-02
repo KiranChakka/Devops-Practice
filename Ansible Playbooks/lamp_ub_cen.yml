@@ -1,0 +1,54 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Installation of apache on Ubuntu
+    apt:
+      name: apache2
+      update_cache: yes
+      state: present
+    notify:
+    - restart apache2
+    when: ansible_os_family == "Debian"
+  - name: Installation of httpd on Centos
+    yum:
+      name: httpd
+      state: present
+    notify:
+    - restart httpd
+    when: ansible_os_family == "RedHat"
+  - name: Installation of php on Ubuntu
+    apt:
+      name: {{ item }}
+      state: present
+    with_items:
+      - php
+      - libapache2-mod-php
+      - php-mysql
+     notify:
+    - restart apache2
+    when: ansible_os_family == "Debian"   
+  - name: Installation of php on Centos
+    yum:
+      name: {{ item }}
+      state: present
+    with_items:
+      - php
+      - php-mysql
+     notify:
+    - restart httpd
+    when: ansible_os_family == "RedHat"
+  handlers:
+  - name: restart apache2
+    service:
+      name: apache2
+      enabled: yes
+      state: restarted
+    when: ansible_os_family == "Debian"
+  - name: restart httpd
+    service:
+      name: httpd.service
+      enabled: yes
+      state: restarted
+    when: ansible_os_family == "RedHat"
+  

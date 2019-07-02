@@ -14,3 +14,14 @@ sudo nano /var/www/html/info.php
 phpinfo();
 ?>
 echo  '<?php phpinfo(); ?>' >> /var/www/html/info.php
+
+Installing on Centos7
+sudo yum install httpd
+sudo systemctl start httpd.service
+sudo yum install php php-mysql
+sudo systemctl restart httpd.service
+
+sudo vi /var/www/html/info.php
+<?php phpinfo(); ?>
+
+echo  '<?php phpinfo(); ?>' >> /var/www/html/info.php
