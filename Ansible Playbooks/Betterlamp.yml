@@ -9,6 +9,8 @@
       update_cache: yes
     notify:
     - Restart apache2
+    when: ansible_os_family == "Debian"
+
   - name: Installing php
     apt:
       name: {{ item }}
@@ -19,9 +21,12 @@
       - php-mysql
     notify:
     - Restart apache2
+    when: ansible_os_family == "Debian"
+
   handlers:
   - name: Restart apache2
     service:
       name: apache2
       enabled: yes
       state: restarted
+    when: ansible_os_family == "Debian"
