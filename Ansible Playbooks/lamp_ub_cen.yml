@@ -34,7 +34,6 @@
       state: latest
     with_items:
       - php
-      - php-mysql
     notify:
     - restart httpd
     when: ansible_os_family == "RedHat"
