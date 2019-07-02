@@ -19,7 +19,7 @@
     when: ansible_os_family == "RedHat"
   - name: Installation of php on Ubuntu
     apt:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
     with_items:
       - php
@@ -30,7 +30,7 @@
     when: ansible_os_family == "Debian"   
   - name: Installation of php on Centos
     yum:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
     with_items:
       - php
