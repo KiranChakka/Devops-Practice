@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   tasks:
-  - name: Installation of apache
+  - name: Updating packages & Installation of apache
     apt: 
       name: apache2
       state: present
@@ -10,6 +10,7 @@
   - name: Apache2 service restart
     service:
       name: apache2
+      enabled: yes
       state: restarted
   - name: Php Installation
     apt:
@@ -22,5 +23,6 @@
   - name: Apache2 service restart
     service:
       name: apache2
+      enabled: yes
       state: restarted  
    
