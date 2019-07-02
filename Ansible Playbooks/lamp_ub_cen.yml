@@ -13,7 +13,7 @@
   - name: Installation of httpd on Centos
     yum:
       name: httpd
-      state: present
+      state: latest
     notify:
     - restart httpd
     when: ansible_os_family == "RedHat"
@@ -31,7 +31,7 @@
   - name: Installation of php on Centos
     yum:
       name: "{{ item }}"
-      state: present
+      state: latest
     with_items:
       - php
       - php-mysql
