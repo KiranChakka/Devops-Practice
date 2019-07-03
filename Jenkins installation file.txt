@@ -30,7 +30,7 @@ Master configs
  cd /home/jenkins/.ssh/
  ls -ltr
 
- Node:
+ Node onstallation steps on Ubuntu:
 1) Create user as jenkins "adduser jenkins"
     Choose password as "jenkins"
 2) Add below line in visudo file
@@ -55,4 +55,31 @@ java -version
 sudo nano /etc/environment
 JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 # save the file
+source /etc/environment
+
+Node onstallation steps on Redhat/Centos:
+1) Create user as jenkins "adduser jenkins"
+    Choose password as "jenkins"
+2) Add below line in visudo file
+    jenkins ALL=(ALL:ALL) NOPASSWD:ALL
+3) This step is only for Amazon servers
+ a) enable below in the /etc/ssh/sshd_config
+     PasswordAuthentication yes
+ b) Restart sshd_config
+    sudo service sshd restart
+--------------------------------------------------------
+ Below step needs to be performed on Jenkins Master not on Node
+ cd /home/jenkins/.ssh/
+ ssh-copy-id jenkins@nodeprivatedns
+ login into Node server using ssh nodeprivate dns
+ verify authorised keys are exists ls ~/.ssh/
+-----------------------------------------------------------
+4) Installation of java
+sudo yum install java-1.8.0-openjdk-devel
+java -version
+for finding java environment variable
+sudo alternatives --config java
+ls /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-1.el8_0.x86_64/
+sudo vi /etc/environment
+JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-1.el8_0.x86_64/"
 source /etc/environment
