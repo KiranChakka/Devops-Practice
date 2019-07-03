@@ -37,6 +37,10 @@
     notify:
     - restart httpd
     when: ansible_os_family == "RedHat"
+  - name: download web page
+    get_url:
+      url: https://github.com/KiranChakka/Devops-Practice/blob/master/Ansible%20Playbooks/info.php
+      dest: /var/www/html/info.php
   handlers:
   - name: restart apache2
     service:
