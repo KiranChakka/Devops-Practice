@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    pack_name: apache
+    php_packages:
+    - php
+    - libapache2-mod-php
+    - php-mysql
+  when: ansible_os_family == "Debian"
+    pack_name: httpd
+    php_packages:
+    - php
+  when: ansible_os_family == "RedHat"    
+  tasks:
+  - name: Installation of Apache
+    package:
+      name: "{{ pack_name }}"
+      state: present
+    notify:
+    - restart apache
+  - name: Installation of Php
+    package: 
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ php_packages }}"
+    notify:
+    - restart apache
+  - name: Download web package
+    get_url:
+      url: https://github.com/KiranChakka/Devops-Practice/blob/master/Ansible%20Playbooks/info.php
+      dest: /var/www/html/info.php
+    notify:
+    - restart apache
+  handlers:
+  - name: restart Apache
+    service:
+      name: "{{ pack_name}}"
+      enabled: yes
+      state: restarted
+    
