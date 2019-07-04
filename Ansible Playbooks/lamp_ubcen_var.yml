@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Installation of apache
+    package: 
+      name: "{{ pack_name }}"
+      state: present
+    notify:
+    - restart apache
+  - name: Installation of php
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ php_packages }}"
+    notify:
+    - restart apache  
+  - name: download web page
+    get_url:
+      url: https://github.com/KiranChakka/Devops-Practice/blob/master/Ansible%20Playbooks/info.php
+      dest: /var/www/html/info.php
+    notify:
+    - restart apache
+  handlers:
+  - name: restart apache
+    service:
+      name: "{{ pack_name }}"
+      enabled: yes
+      state: restarted
+  
+
