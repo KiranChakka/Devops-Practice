@@ -4,11 +4,11 @@
   gather_facts: no
   tasks:
   - name: "Create file"
-    command: "touch /home/ubuntu/test.txt"
+    command: "touch /home/ansible/test.txt"
   - name: "Store Contents"
-    command: echo "Hello" >> /home/ubuntu/test.txt
+    command: echo "Hello" >> /home/ansible/test.txt
   - name: "Display content"
-    command: cat /home/ubuntu/test.txt
+    command: cat /home/ansible/test.txt
     register: file_content
   - debug:
       msg: "{{ file_content }}"
