@@ -5,5 +5,6 @@
   - name: display of the files
     command: ls
     register: dir_files
-  debug:
-    var: dir_files.stdout_lines
+  - name: display lines
+    debug:
+      var: dir_files
