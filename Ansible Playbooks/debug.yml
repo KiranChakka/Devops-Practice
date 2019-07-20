@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: display of the files
+    shell: ls
+    register: dir_files
+    debug:
+      var: dir_files.stdout_lines
