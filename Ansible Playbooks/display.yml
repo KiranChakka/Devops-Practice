@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Display Ip and hostname of machines
+    debug:
+      msg: hostname is {{ansible_nodename}}
