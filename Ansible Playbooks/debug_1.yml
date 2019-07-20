@@ -4,4 +4,4 @@
   tasks:
   - name: Display Ip and hostname of machines
     debug:
-      msg: Date and time is "{{ansible_interfaces}}"
+      msg: Date and time is "{{ansible_interfaces[1]}}"
