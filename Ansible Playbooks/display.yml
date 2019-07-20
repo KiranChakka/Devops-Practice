@@ -5,3 +5,4 @@
   - name: Display Ip and hostname of machines
     debug:
       msg: hostname is {{ansible_nodename}} and IP is {{ansible_all_ipv4_addresses}}
+      msg: Details of IPv4 is {{ansible_default_ipv4}}
