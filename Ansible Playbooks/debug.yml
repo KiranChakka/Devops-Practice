@@ -7,4 +7,4 @@
     register: dir_files
   - name: display lines
     debug:
-      var: dir_files
+      var: dir_files.stdout_lines
