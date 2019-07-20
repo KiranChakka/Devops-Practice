@@ -4,4 +4,4 @@
   tasks:
   - name: Display Ip and hostname of machines
     debug:
-      msg: IP address "{{ansible_default_ipv4[3]}}"
+      msg: IP address "{{ansible_default_ipv4_address}}"
