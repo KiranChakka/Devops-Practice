@@ -4,4 +4,4 @@
   tasks:
   - name: Display Ip and hostname of machines
     debug:
-      msg: Date and time is "{{ansible_default_ipv4.address}}"
+      msg: Date and time{{ansible_date_time.date}} is IP Address is {{ansible_default_ipv4.address}} and {{ansible_all_ipv4_addresses[0]}}
