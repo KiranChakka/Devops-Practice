@@ -9,7 +9,7 @@
   - name: creation of test users
     user:
       name: "{{item}}"
-      group: testgroup
+      groups: testgroup
     with_items:
       - test1
       - test2
