@@ -1,0 +1,41 @@
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp$ ls -ltr
+total 16
+drwxr-xr-x 2 root root 4096 Jul 24 18:28 host_vars
+drwxr-xr-x 2 root root 4096 Jul 24 18:28 group_vars
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp$ cd host_vars/
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/host_vars$ ls -ltr
+total 12
+-rw-r--r-- 1 root root 73 Jul 24 18:28 localhost.yml
+-rw-r--r-- 1 root root 73 Jul 24 18:28 ip-172-31-43-80.us-east-2.compute.internal.yml
+-rw-r--r-- 1 root root 37 Jul 24 18:28 ip-172-31-0-104.us-east-2.compute.internal.yml
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/host_vars$ cat localhost.yml
+pack_name: apache2
+php_packages:
+- php
+- libapache2-mod-php
+- php-mysql
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/host_vars$ cat ip-172-31-43-80.us-east-2.compute.internal.yml
+pack_name: apache2
+php_packages:
+- php
+- libapache2-mod-php
+- php-mysql
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/host_vars$ cat ip-172-31-0-104.us-east-2.compute.internal.yml
+pack_name: httpd
+php_packages:
+- php
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp$ cd group_vars/
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/group_vars$ ls -ltr
+total 8
+-rw-r--r-- 1 root root 73 Jul 24 18:28 ubuntu.yml
+-rw-r--r-- 1 root root 37 Jul 24 18:28 redhat.yml
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/group_vars$ cat ubuntu.yml
+pack_name: apache2
+php_packages:
+- php
+- libapache2-mod-php
+- php-mysql
+ansible@ip-172-31-29-182:/etc/ansible/practise/Devops-Practice/Ansible Playbooks/hosts_bkp/group_vars$ cat redhat.yml
+pack_name: httpd
+php_packages:
+- php
