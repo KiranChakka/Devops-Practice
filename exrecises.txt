@@ -1,0 +1,118 @@
+Jenkins exercises
+1 .cronjob -- every 1 hour to execute spring pet clinic project through maven 
+
+target/surefire-reports*html -- for post build action test results
+
+github.com/QT-Devopsissues
+
+--------------------------------
+
+Docker is a computer program that performs operating-system-level virtualization, also known as "containerization".
+
+Docker is used to run software packages called "containers". Containers are isolated from each other and bundle their own application, tools, libraries and configuration files;
+they can communicate with each other through well-defined channels. All containers are run by a single operating-system kernel and are thus more lightweight than virtual machines.
+Containers are created from "images" that specify their precise contents. Images are often created by combining and modifying standard images downloaded from public repositories.
+What is Image?
+Docker Image is a package with all the dependencies and the necessary information to create the container.
+Docker Image is usually derived from multiple base images that are layers stacked on each other to form containers filesystem. Other interesting aspect is Docker Image is Immutable once its created
+What is Container?
+Container is an isolated space for execution of application. In this section we would like to look at Containers from the image perspective.
+Container is Docker Image’s instance which represents the application/service
+What is Registry?
+Registry is the service which provides access to Docker Images collection.
+Docker hub is the default registry.
+Companies often prefer private repositories to store Docker Images
+Docker:
+docker run -it nginx  /bin/bash -- for entering into nginx container/terminal
+ls
+touch test.txt
+
+ping/ifconfig is not available
+
+docker rm -f $(docker ps -a -q) --> command for killing all containers
+
+
+Docker file
+-----------------------------
+Name of the file is --> Dockerfile
+FROM nginx
+MAINTAINER kiran
+RUN touch test.txt
+CMD ["echo", "my-first-image"]
+-------------------------------
+docker build -t my-first:Latest .
+
+Docker second file
+download and upload the gameoflife.war file in the host server and write below program
+
+Docker file
+----------------------
+FROM tomcat:8.0-jre8
+MAINTAINER Kiran Chakka
+ADD gameoflife.war /usr/local/tomcat/webapps/gameoflife.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+-------------------------------------
+docker build -t golim:1.0 . --> image creation
+
+docker run -p 8080:8080 --name golcon golim:1.0 --> creation of a container in attached mode since we can able to see the logs
+docker run -d -p 8080:8080 --name golcon1 golim:1.0 --> creation of a container in detached mode 
+docker logs golcon1 --> we can verify logs
+docker exec -it golcon /bin/bash --> entering into container
+
+**ctrl +c and exit will kill the containers, so we need to use ctrl+p+q keys can help to comeout the container without killing the container.
+
+WORKDIR --> after logging into the container it will go to this directory (default is root directory)
+ENTRYPOINT --> it is the starting point, it overrides the CMD 
+ENV --> we can set enviornment varaible
+
+for each RUN statement we will see that many layers
+
+docker run -d -v /usr/local/tomcat -p 9700:8080 --name volume_1 gol:1.0
+docker inspect volume_1
+
+layers in docker
+
+docker run -d -v /home/ubuntu/code:/var/tmp --name one gol:1.0 --> volume forwarding and creating a new container
+docker exec one ls /var/tmp --> listing the files in the container
+Maintainer will be replaced by label
+go through the command line interfaces in docker hub.
+.Dockerignore file will help to ignore the files while add or copy in the image
+
+single host and multi host networks
+docker swarm
+
+single host --> 1 host with multi containers to communicate
+multi host --> multi hosts with multi containers
+
+-----------------------------
+docker run -it ubuntu:16.04 /bin/bash
+ping --> not found
+apt-get update
+apt-get install iputils-ping
+
+Docker file creation with ping utility
+------------------------------------
+Vi Dockerfile
+FROM ubuntu:16.04
+MAINTAINER Kiran Chakka
+RUN apt-get update && apt-get install iputils-ping -y
+CMD ["echo", "created"]
+-----------------------------------------------
+
+docker network ls
+create 2 containers using gol image
+docker network inspect bridge -->verify that 2 containers are exists
+
+docker network create -d bridge --subnet 10.10.10.0/24 qt-bridge -->creation of own network for single host multi containers
+docker run -d --name c1 --network qt-bridge gol:1.0 --> to create a container with the above network
+
+---------------------------------------------------------------
+docker swarm init -->master
+o/p will give to run on worker machines execute the same on workers and make network
+docker node ls --> it will show the nodes
+docker network create -d overlay qt-overlay
+docker network ls
+docker service create --name qt-svc --network qt-over --replicas 3 nginx sleep 1d
+docker service ls
+

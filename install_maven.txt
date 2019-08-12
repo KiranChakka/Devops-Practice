@@ -1,0 +1,49 @@
+Install a machine with Ubuntu and enable all traffic [Refering QualityThought Portal references]
+
+sudo apt-get update
+sudo apt-get install tree
+sudo apt-get update
+
+Installing Java
+sudo apt-add-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+java -version
+
+sudo vi /etc/profile
+add bellow steps end of file
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/ 
+export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin 
+
+Installing Maven
+sudo wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+sudo tar -zxvf apache-maven-3.5.4-bin.tar.gz
+sudo ln -s /opt/apache-maven-3.5.4/bin/mvn /usr/bin/mvn
+
+[
+ubuntu@ip-172-31-41-96:/opt$ ls -ltr /opt/apache-maven-3.5.4/bin/mvn
+-rwxr-xr-x 1 501 staff 5741 Jun 17  2018 /opt/apache-maven-3.5.4/bin/mvn
+ubuntu@ip-172-31-41-96:/opt$ ls -l /usr/bin/mvn
+ls: cannot access '/usr/bin/mvn': No such file or directory
+ubuntu@ip-172-31-41-96:/opt$ sudo ln -s /opt/apache-maven-3.5.4/bin/mvn /usr/bin/mvn
+ubuntu@ip-172-31-41-96:/opt$ ls -l /usr/bin/mvn
+lrwxrwxrwx 1 root root 31 Jan 23 11:52 /usr/bin/mvn -> /opt/apache-maven-3.5.4/bin/mvn
+ubuntu@ip-172-31-41-96:/opt$
+]
+
+sudo vi /etc/profile
+M2_HOME=/opt/apache-maven-3.5.4
+PATH=$PATH:$M2_HOME/bin 
+export M2_HOME
+export PATH
+
+mvn -version
+
+sudo apt-get install git
+
+Installing Jenkins
+
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
