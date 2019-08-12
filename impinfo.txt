@@ -6,6 +6,8 @@ https://github.com/asquarezone/AnsibleZone/tree/master/July19/playbooks/tomcat8-
 sudo usermod -a -G docker ansible
 https://docs.docker.com/engine/swarm/stack-deploy/ -- docker stack
 
+https://github.com/asquarezone/TerraformZone/tree/master/June2018/myfirstec2 -- terraform variables
+
 
 
 imp urls for interview
