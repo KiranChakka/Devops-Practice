@@ -1,0 +1,50 @@
+github.com:
+kiran.chakka@gmail.com/kiran@123
+github for home task
+kiran-hometask/hometask@123
+https://github.com/asquarezone/AnsibleZone/tree/master/July19/playbooks/tomcat8-- templates
+sudo usermod -a -G docker ansible
+https://docs.docker.com/engine/swarm/stack-deploy/ -- docker stack
+
+
+
+imp urls for interview
+https://www.edureka.co/blog/interview-questions/jenkins-interview-questions/
+https://www.edureka.co/blog/videos/continuous-integration-with-jenkins/
+
+docker portrainer:
+https://hub.docker.com/r/portainer/portainer/
+
+To use scp with a key pair use the following command: scp -i path/to/key file/to/copy user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:path/to/file
+
+https://aws.amazon.com/marketplace/b/2649280011
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html
+
+https://resttesttest.com/ --> rest api testing
+https://hub.docker.com/_/openjdk?tab=description&page=10 -- docker file for java
+
+
+Kubernetes learning:
+https://www.edureka.co/blog/what-is-kubernetes-container-orchestration -- detailed expalnation with videos
+https://www.tutorialspoint.com/kubernetes/kubernetes_architecture.htm -- documentation
+
+
+Valaxy videos sequence:
+what is a container orchestrator, why I need Kubernetes
+Kubernetes Introduction
+Kubernetes components
+setup kubernetes on AWS
+creating pods on kubernetes
+benfits of kubernetes
+
+git url for codes:
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/SimpeDevOpsProjects/Project-4.MD -- CI CD pipeline and setup code
+https://github.com/ValaxyTech/hello-world for CI/CD pipeline
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/SonarQube/SonarQube_Installation.MD -- sonarqube installation
+https://github.com/miztiik -- valaxy aws git
+https://www.youtube.com/watch?v=F5J8eQHlR2I
+https://blog.alexellis.io/scale-docker-swarm-on-aws/
+https://gist.github.com/alexellis/189cfeed58e94066106b486b76b4c015 -- docker install
+https://www.youtube.com/channel/UCR5fgyj9JaFvTMBUrKRdqYg/videos
+https://github.com/dockersamples/example-voting-app/blob/master/docker-stack.yml
+https://testable.io/create-an-aws-auto-scaling-group-with-terraform/

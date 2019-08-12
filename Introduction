@@ -1,0 +1,120 @@
+I am Kiran, I have 16+ years of exeprience in IT industry out of which I have around 3 years of experience in Devops and AWS Cloud.
+I was working with IBM pvt Ltd as Devops Engineer till March 2019.
+
+As part of my role, I was responsible to setup and manage Devops CI/CD Pipelines and enviormnet on AWS cloud.
+
+I have used various Devops tools like Git(for Version Control system), Jenkins (for Continiuos Integration), Maven (as a Build tool)
+Sonarqube(for code analysis), Nexus (for artifactory repository), Ansible(for continious deployment and Configuration management), 
+Terraform(Configuration management), Docker (for containerazation) and Kubernetes (for Orchestration).
+
+This Devops running enviormnet is running on AWS cloud which was setup by me according to our Devops Architect plan.
+
+-----------------------------------------------------------------------------------------------------------------------------
+I performed several roles in IT industry and Worked with multiple telecom companies across the globe (Three Ireland, Comverse, Ericsson, Verizon, Sprint, BSNL)
+I started my carrer as a Switch Engineer in BSNL(Leading Telecom Operator in India) and worked for around 3 years then
+I moved to Aricent Technologies as Senior Product Engineer and worked for around 4 years.
+I moved to IBM and worked as VAS Operations engineer, Telecom SME, Functional lead for VAS team, Techlead for telecom projects, 
+Industry Consultant & Business Analyst for Three Ireland network.
+I always had an enthusiam to learn new technologies and got an oppurtinity to work as a Devops Automation Engineer.
+-----------------------------------------------------------------------------------------------------------------------------
+More details:
+Git:
+We are using Git as a version control system.
+- Enable branchig strategies (dev,QA, Preprod and prod)
+- Managing git repositories using various git commands (push, pull, merge, clone, branch, rebase etc)
+- Managing it user access (permssions providing repositories, branches for securing code)
+
+Jenkins:
+- Setting Jenkins Server
+- Master and Slave Configuration
+- Managing CI/CD Jobs
+- Managing Jenkin Plugins
+- Integration other devops tools like git, Maven, Ansible, Sonarqube, Nexus etc.
+
+Ansible:
+- Setting up Ansible as a Control Server.
+- Writing playbooks and roles
+- Managing Ansible hosts
+
+Docker:
+- Setting up Docker enviornment
+- Writing Docker files
+- Creating custom images
+- setting up private docker registry
+- Creating and managing containers.
+
+Kubernetes:
+- Setup Kubernetes enviornment on on-premises
+- Writing deployment files and service files
+- Managing Containers on pods
+- Managing Kubernetes Nodes
+
+Terraform:
+- Writing Terraform templates to deploy the AWS resources(VPC,Subnet,Routes,IGW, NAT Gateway, EC2 etc)
+
+I have configured and managed various AWS services like EC2, VPC, ELB, RDS, EBS, EFS, S3, Glacier, IAM, Cloud Watch, Cloud Front, and Route 53 etc:
+EC2:
+- Provisoning EC2 instances
+- Bootstrapping EC2 instances while launching
+- Hardening EC2 instances with security patches after launching (like installing antivirus etc)
+- Modifying instance security groups to open or close port numbers
+- recovering EC2 instance key pair (incase lost the key pair to login into the system)
+- shutting down unused instances as per customer confirmation (sometimes dev env is required after completion of activity)
+- Taking AMI of instances if any activity changed/scheduled. 
+
+VPC:
+- Creating VPCs, Subnets, Route tables, Internet Gateways, NACLs etc for new enviornment.
+- Creating public and private subnets
+- Create NAT gateways
+- Disabling ports in NACLs
+- Enabling vpc peering between Dev and QA
+- Enabling vpc flow logs to monitor network relates issues
+
+ELB, Autoscaling:
+- Creating ELBs
+- Requesting SSL certificate for new doamins in Certificate Manager(ACM)
+- Trouble shooting incase of instances are out of service in ELB.
+- Creating launch configuration and Autoscaling groups (for high availabilty and fault tolerant)
+
+EBS, EFS, S3, Glacier:
+- Creating new EBS volumes, modifying exisitng volumes sizes or volume types.
+- Taking volume snap shots for backup (restoring purpose)
+- Copying volumes from one AZ to another AZ if requested
+- Migration of data from on EC2 instance to another EC2 (data in EBS)
+- Enabling encryption of EBs and S3 bucket objects.
+- Creating S3 objects and granting requested permissions through IAM.
+- Enabling life cycle policies to transfer data from one storage class to another storage class.(standrad- IA- Glacier)
+- Creating EFS and mounting it in multiple instances.
+
+IAM:
+- Creating IAM users and granting with permissions (only S3 like that)
+- Generating or modifying IAM policies as per requirement
+- Creating roles to access one AWS service with other.
+- encforcing users to use secure password and MAF
+
+Cloud Watch, Cloud Front, Trust Adviser:
+- Monitoring Instance resources utilization through cloudwatch(like cpu, memory, disk, networkin and out).
+- Creating Alarms, events and custom metrics(other services apart from above) in cloudwatch
+- Enabling Cloud Trial and analyzing logs in case of any event occured (captured the activites performed on aws console,cli and api)
+- Collecting trusted adviser reports timely manner and analyzing reports for cost optimization 
+( where we can check which services are under utilised as expected, where we can scale down or reduce the volumes depends on the situation)
+(cost optimisation, performance, security, Fault tolerant, service limits)
+
+Route53 (DNS server):
+- Creating Route53 hosted zones to map with public or private doamain.
+- Creating records sets to map with EC2 instances/ELBs.
+- Using routing policies if necessary (most of the times simple routing policy)
+- Mapping domain from domain registers (like godadddy) to route53.
+
+Cloudformation:
+- Writing Cloud formation templates(VPC,EC2,ELB,S3 etc) to deploy inftastructure as cloud.
+- Analyzing change sets before modfying as stack.
+
+RDS:
+- Creating RDS instances as per database team requirement
+- Taking snapshots and restoring from snapshots
+
+other services like AWS backups, System manger(Run) and Inspector.
+ 
+
+
