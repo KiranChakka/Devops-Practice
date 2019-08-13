@@ -11,3 +11,9 @@ https://github.com/asquarezone/TerraformZone/tree/master/June2018/Threetier -- 3
 note: XX.pem file was kept under keys folder where the .tf files copied
 terraform init
 terraform validate -var "accesskey=XXX" -var "secretkey=XXX" -var "privatekeypath=./Keys/XX.pem" .
+------------------------------------------------------------------------------------------------------
+terraform plan -var "accesskey=XXX" -var "secretkey=XXX" -var "privatekeypath=./Keys/XX.pem" .
+terraform apply -var "accesskey=XXX" -var "secretkey=XXX" -var "privatekeypath=./Keys/XX.pem" .
+-------------------------------------------------------------------------------------------------------------
+terraform plan -var "accesskey=XXX" -var "secretkey=XXX" -var "privatekeypath=./Keys/XX.pem" -out threetier.plan .
+terraform apply "threetier.plan"
