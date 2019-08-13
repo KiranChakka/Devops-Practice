@@ -1,0 +1,13 @@
+https://github.com/asquarezone/TerraformZone/tree/master/June2018/myfirstec2 -- creating ec2 instance with terraform variables
+terraform init
+terraform validate -var "accesskey=XXX" -var "secretkey=XXX" .
+terrafom plan -var "accesskey=XXX" -var "secretkey=XXX" .
+terrafom apply -var "accesskey=XXX" -var "secretkey=XXX" .
+above commands are w/o directories
+terrafom apply -var "accesskey=XXX" -var "secretkey=XXX" -var-file ".\UAT\uat.tfvars" .
+note: vpc-id , ami-id and key.pem file should taken from AWS
+
+https://github.com/asquarezone/TerraformZone/tree/master/June2018/Threetier -- 3 tier archtectiure
+note: XX.pem file was kept under keys folder where the .tf files copied
+terraform init
+terraform validate -var "accesskey=XXX" -var "secretkey=XXX" -var "privatekeypath=./Keys/XX.pem" .
