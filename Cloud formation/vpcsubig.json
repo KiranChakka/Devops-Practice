@@ -1,0 +1,92 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Learing Cloudformation",
+    "Resources": {
+        "ntier": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.100.0.0/16",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "FromCF"
+                    }
+                ]
+            }
+        },
+        "web": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntier"
+                },
+                "CidrBlock": "10.100.0.0/24",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "websubnet"
+                    }
+                ]
+            }
+        },
+        "Db": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntier"
+                },
+                "CidrBlock": "10.100.1.0/24",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Dbsubnet"
+                    }
+                ]
+            }
+        },
+        "igw": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "igwvpc"
+                    }
+                ]
+            }
+        },
+        "AttachGateway": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "ntier"
+                },
+                "InternetGatewayId": {
+                    "Ref": "igw"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "vpcid": {
+            "Value": {
+                "Ref": "ntier"
+            }
+        },
+        "websubnet": {
+            "Value": {
+                "Ref": "web"
+            }
+        },
+        "Dbsubnet": {
+            "Value": {
+                "Ref": "Db"
+            }
+        },
+        "igwvpc": {
+            "Value": {
+                "Ref": "igw"
+            }
+        }
+    }
+}
