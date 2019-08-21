@@ -1,0 +1,68 @@
+http://jsonviewer.stack.hu/ -- to view the json files in a viewer
+http://jmespath.org/tutorial.html -- to get the value by choosing like a.b.
+
+commands:
+aws ec2 describe-instances
+aws iam list-users
+aws ec2 describe-vpcs
+
+redirection:
+aws ec2 describe-vpcs > vpc.json
+aws ec2 describe-security-groups >sg.json
+
+queries:
+PS C:\Devops_Practise\AWS CLI\output> aws ec2 describe-vpcs --query "Vpcs[*].VpcId"
+[
+    "vpc-018a8940ca6408b25",
+    "vpc-84626eec"
+]
+
+PS C:\Devops_Practise\AWS CLI\output> aws ec2 describe-vpcs --query "Vpcs[*].CidrBlock"
+[
+    "10.10.0.0/16",
+    "172.31.0.0/16"
+]
+
+ aws ec2 describe-vpcs --query "Vpcs[*].CidrBlockAssociationSet[*].CidrBlock"
+
+ PS C:\Devops_Practise\AWS CLI\output>  aws ec2 describe-vpcs --query "Vpcs[*].CidrBlockAssociationSet[*].CidrBlock"
+[
+    [
+        "10.10.0.0/16"
+    ],
+    [
+        "172.31.0.0/16"
+    ]
+]
+
+aws ec2 describe-security-groups --query "SecurityGroups[*].GroupName"
+PS C:\Devops_Practise\AWS CLI\output> aws ec2 describe-security-groups --query "SecurityGroups[*].GroupName"
+[
+    "default",
+    "Alltraffic",
+    "default",
+    "launch-wizard-16",
+    "dbsecgroup",
+    "Allowssh"
+]
+
+aws ec2 describe-security-groups --query "SecurityGroups[?VpcId=='vpc-018a8940ca6408b25'].GroupName"
+PS C:\Devops_Practise\AWS CLI\output> aws ec2 describe-security-groups --query "SecurityGroups[?VpcId=='vpc-018a8940ca6408b25'].GroupName"
+[
+    "default",
+    "dbsecgroup",
+    "Allowssh"
+]
+PS C:\Devops_Practise\AWS CLI\output> aws ec2 describe-security-groups --query "SecurityGroups[?VpcId!='vpc-018a8940ca6408b25'].GroupName"
+[
+    "Alltraffic",
+    "default",
+    "launch-wizard-16"
+]
+
+
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-018a8940ca6408b25"
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-018a8940ca6408b25" "Name=availability-zone,Values=us-east-2b"
+
+aws ec2 describe-security-groups --query "SecurityGroups[*].IpPermissionsEgress[*].*.CidrIp" -- not working
+aws ec2 describe-security-groups --filters "Name=VpcId,Values=vpc-018a8940ca6408b25" -- not working
